@@ -14,7 +14,7 @@ Add files to the existing `assets/` folder using these names, or update the matc
 
 The reel and project previews play on hover and pause when the pointer leaves or the video scrolls out of view. Click a video to keep it playing; click again to pause. On touchscreens, click controls playback. Videos start muted. Keep video files reasonably compressed for faster page loads.
 
-The supplied MH Studio Production logo is used for `favicon.png`. The four partner marks are separated from the supplied logo sheet and shown in a static, responsive row.
+The supplied MH Studio Production logo is used for `favicon.png`. The four partner marks are separated from the supplied logo sheet, vectorized as SVGs, and shown in a static, responsive row.
 
 ## Publish with GitHub Pages and a custom domain
 
