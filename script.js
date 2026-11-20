@@ -1,15 +1,11 @@
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('.site-nav');
-const videoDialog = document.querySelector('.video-dialog');
-const videoPlayer = videoDialog.querySelector('video');
-const videoError = videoDialog.querySelector('.video-error');
-
-document.querySelector('#year').textContent = new Date().getFullYear();
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 menuButton.addEventListener('click', () => {
-  const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-  menuButton.setAttribute('aria-expanded', String(!isOpen));
-  navigation.classList.toggle('is-open', !isOpen);
+  const open = menuButton.getAttribute('aria-expanded') === 'true';
+  menuButton.setAttribute('aria-expanded', String(!open));
+  navigation.classList.toggle('is-open', !open);
 });
 
 navigation.querySelectorAll('a').forEach((link) => {
@@ -19,32 +15,59 @@ navigation.querySelectorAll('a').forEach((link) => {
   });
 });
 
-document.querySelectorAll('[data-video]').forEach((button) => {
-  button.addEventListener('click', () => {
-    videoError.hidden = true;
-    videoPlayer.src = button.dataset.video;
-    videoDialog.showModal();
-    videoPlayer.play().catch(() => {});
-  });
-});
+const controls = [...document.querySelectorAll('[data-video-toggle]')];
 
-videoPlayer.addEventListener('error', () => {
-  videoError.hidden = false;
-});
-
-function closeVideo() {
-  videoDialog.close();
-  videoPlayer.pause();
-  videoPlayer.removeAttribute('src');
-  videoPlayer.load();
+function videoFor(control) {
+  return control.querySelector('video') || control.closest('.showreel')?.querySelector('video');
 }
 
-videoDialog.querySelector('.modal-close').addEventListener('click', closeVideo);
-videoDialog.addEventListener('click', (event) => {
-  if (event.target === videoDialog) closeVideo();
-});
-videoDialog.addEventListener('close', () => {
-  videoPlayer.pause();
-  videoPlayer.removeAttribute('src');
-  videoPlayer.load();
+function start(control) {
+  const video = videoFor(control);
+  if (!video) return;
+  if (!video.src) video.src = video.dataset.src;
+  video.play().then(() => {
+    video.classList.add('is-playing');
+    control.classList.add('is-playing');
+  }).catch(() => {});
+}
+
+function pause(control) {
+  const video = videoFor(control);
+  if (!video) return;
+  video.pause();
+  video.classList.remove('is-playing');
+  control.classList.remove('is-playing');
+}
+
+controls.forEach((control) => {
+  let pinned = false;
+  const video = videoFor(control);
+  const hoverArea = control.closest('.showreel') || control;
+
+  hoverArea.addEventListener('pointerenter', (event) => {
+    if (event.pointerType !== 'touch' && !reducedMotion.matches && !pinned) start(control);
+  });
+
+  hoverArea.addEventListener('pointerleave', () => {
+    if (!pinned) pause(control);
+  });
+
+  control.addEventListener('click', () => {
+    if (pinned) {
+      pinned = false;
+      control.setAttribute('aria-pressed', 'false');
+      pause(control);
+      return;
+    }
+    pinned = true;
+    control.setAttribute('aria-pressed', 'true');
+    start(control);
+  });
+
+  video.addEventListener('error', () => {
+    video.classList.remove('is-playing');
+    control.classList.remove('is-playing');
+    pinned = false;
+    control.setAttribute('aria-pressed', 'false');
+  });
 });
