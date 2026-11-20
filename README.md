@@ -4,7 +4,7 @@ A lightweight, static HTML/CSS/JS portfolio. It has no build step and can be pub
 
 ## Add your videos
 
-Create an `assets/` folder and add files using these names, or update the matching `data-video` paths in `index.html`:
+Add files to the existing `assets/` folder using these names, or update the matching `data-src` paths in `index.html`:
 
 - `showreel.mp4`
 - `project-01.mp4`
@@ -13,6 +13,8 @@ Create an `assets/` folder and add files using these names, or update the matchi
 - `project-04.mp4`
 
 The reel and project previews play on hover and pause when the pointer leaves or the video scrolls out of view. Click a video to keep it playing; click again to pause. On touchscreens, click controls playback. Videos start muted. Keep video files reasonably compressed for faster page loads.
+
+The supplied MH Studio Production logo is used for `favicon.png`. Partner marks in the moving banner are shown in monochrome.
 
 ## Publish with GitHub Pages and a custom domain
 

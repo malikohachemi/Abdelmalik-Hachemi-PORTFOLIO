@@ -56,8 +56,21 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
 .play-symbol { font-size: 25px; line-height: 1.2; }
 .play-label { font-size: 9px; letter-spacing: 1.6px; }
 
-.services-strip { width: min(920px, calc(100% - 112px)); margin: 72px auto 96px; display: flex; justify-content: space-between; align-items: center; gap: 22px; color: #e6e2e5; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; }
-.services-strip i { width: 1px; height: 16px; background: var(--line); }
+.partner-marquee { position: relative; width: 100%; margin: 72px 0 96px; overflow: hidden; padding: 34px 0; border-block: 1px solid #ffffff12; background: #ffffff03; }
+.marquee-track { display: flex; width: max-content; animation: marquee 34s linear infinite; }
+.partner-marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-group { display: flex; flex: 0 0 100vw; align-items: center; justify-content: space-evenly; gap: 24px; padding-inline: 4vw; }
+.partner-wordmark { display: flex; flex: 0 0 auto; flex-direction: column; align-items: flex-start; justify-content: center; color: #fff; line-height: .85; white-space: nowrap; }
+.web-summit { font-size: clamp(20px, 2.2vw, 29px); letter-spacing: -.065em; }
+.web-summit strong { font-weight: 800; }
+.web-summit > span { font-weight: 400; }
+.fifa { flex-direction: row; align-items: center; gap: 9px; }
+.fifa strong { padding: 4px 5px 3px; border: 1px solid #fff; border-radius: 2px; font-size: clamp(17px, 1.8vw, 23px); font-weight: 800; letter-spacing: -.04em; }
+.fifa > span { max-width: 72px; font-size: 8px; font-weight: 700; line-height: 1.2; letter-spacing: .06em; white-space: normal; }
+.partner-image { display: block; flex: 0 0 auto; object-fit: contain; filter: grayscale(1) brightness(0) invert(1); }
+.elite-logo { width: clamp(86px, 12vw, 148px); height: 54px; }
+.qfa-logo { width: clamp(78px, 10vw, 126px); height: 38px; }
+@keyframes marquee { to { transform: translateX(-50%); } }
 .work { scroll-margin-top: 30px; }
 .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 40px; }
 .film-card { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; padding: 0; border: 0; border-radius: 6px; background: var(--surface); cursor: pointer; isolation: isolate; }
@@ -94,7 +107,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .intro h1 { font-size: clamp(28px, 4.7vw, 36px); line-height: 1.28; }
   .contact-row { margin-top: 72px; font-size: 12px; }
   .showreel { margin-top: 72px; }
-  .services-strip { width: calc(100% - 40px); margin: 52px auto 72px; gap: 12px; font-size: 9px; letter-spacing: .8px; }
+  .partner-marquee { margin: 52px 0 72px; padding-block: 25px; }
+  .marquee-group { gap: 12px; padding-inline: 12px; }
+  .elite-logo { width: clamp(76px, 17vw, 112px); height: 44px; }
+  .qfa-logo { width: clamp(66px, 16vw, 104px); height: 34px; }
   .video-grid { gap: 24px 18px; }
   .contact-panel { margin-top: 90px; margin-bottom: 60px; }
 }
@@ -112,8 +128,14 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .play-control { width: 92px; height: 92px; }
   .play-symbol { font-size: 19px; }
   .play-label { font-size: 8px; }
-  .services-strip { width: calc(100% - 36px); flex-wrap: wrap; justify-content: center; gap: 10px 14px; margin: 38px auto 58px; font-size: 8px; }
-  .services-strip i { height: 12px; }
+  .partner-marquee { margin: 38px 0 58px; padding-block: 22px; }
+  .marquee-group { gap: 5px; padding-inline: 8px; }
+  .web-summit { font-size: 18px; }
+  .fifa { gap: 5px; }
+  .fifa strong { padding: 3px; font-size: 14px; }
+  .fifa > span { max-width: 50px; font-size: 7px; }
+  .elite-logo { width: 72px; height: 36px; }
+  .qfa-logo { width: 60px; height: 30px; }
   .video-grid { grid-template-columns: 1fr; gap: 20px; }
   .film-card { aspect-ratio: 4 / 3; }
   .contact-panel { width: calc(100% - 36px); margin-top: 66px; margin-bottom: 36px; padding: 42px 24px; }
@@ -124,4 +146,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .marquee-track { width: 100%; justify-content: center; animation: none; }
+  .marquee-group[aria-hidden="true"] { display: none; }
 }
