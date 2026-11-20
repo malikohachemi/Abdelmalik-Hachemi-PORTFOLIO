@@ -55,7 +55,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
 .web-summit-tile { width: 174px; }
 .fifa-tile { width: 92px; }
 .elite-tile { width: 168px; }
-.qfa-tile { width: 178px; }
+.qfa-tile { width: 220px; }
 .work { scroll-margin-top: 30px; }
 .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 40px; }
 .film-project { min-width: 0; }
@@ -96,7 +96,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .web-summit-tile { width: 152px; }
   .fifa-tile { width: 82px; }
   .elite-tile { width: 148px; }
-  .qfa-tile { width: 160px; }
+  .qfa-tile { width: 204px; }
   .video-grid { gap: 24px 18px; }
   .contact-panel { margin-top: 90px; margin-bottom: 60px; }
 }
@@ -116,7 +116,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .web-summit-tile { width: 128px; }
   .fifa-tile { width: 72px; }
   .elite-tile { width: 124px; }
-  .qfa-tile { width: 138px; }
+  .qfa-tile { width: 178px; }
   .video-grid { grid-template-columns: 1fr; gap: 20px; }
   .film-card { aspect-ratio: 4 / 5; }
   .contact-panel { width: calc(100% - 36px); margin-top: 66px; margin-bottom: 36px; padding: 42px 24px; }
