@@ -1,6 +1,6 @@
 # Abdelmalik Hachemi — Portfolio
 
-A lightweight, static HTML/CSS/JS portfolio. No build step or dependencies are required; it can be published from the repository root with GitHub Pages.
+A lightweight, static HTML/CSS/JS portfolio. It has no build step and can be published from the repository root with GitHub Pages. GSAP, ScrollTrigger, and Lenis load from CDNs for the motion layer.
 
 ## Add your videos
 
@@ -12,7 +12,7 @@ Create an `assets/` folder and add files using these names, or update the matchi
 - `project-03.mp4`
 - `project-04.mp4`
 
-The reel and project previews play on hover and pause when the pointer leaves. Click a video to keep it playing; click again to pause. On touchscreens, click controls playback. Videos start muted. Keep video files reasonably compressed for faster page loads.
+The reel and project previews play on hover and pause when the pointer leaves or the video scrolls out of view. Click a video to keep it playing; click again to pause. On touchscreens, click controls playback. Videos start muted. Keep video files reasonably compressed for faster page loads.
 
 ## Publish with GitHub Pages and a custom domain
 

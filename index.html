@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -24,19 +27,19 @@
 
     <main id="top">
       <section class="intro page-width" aria-labelledby="intro-title">
-        <h1 id="intro-title">
+        <h1 id="intro-title" data-motion-intro>
           <span>Abdelmalik Hachemi is a filmmaker</span>
           <span>and marketing strategist with 10+ years</span>
           <span class="soft-line">turning ideas into stories that move.</span>
         </h1>
-        <div class="contact-row">
+        <div class="contact-row" data-reveal>
           <span><span class="contact-icon" aria-hidden="true">⌖</span> Doha, Qatar · Available worldwide</span>
           <span class="contact-divider" aria-hidden="true"></span>
           <a href="tel:+97451171114"><span class="contact-icon" aria-hidden="true">↗</span> +974 5117 1114</a>
         </div>
       </section>
 
-      <section class="showreel page-width" aria-label="Showreel">
+      <section class="showreel page-width" aria-label="Showreel" data-reveal>
         <video class="media-video" data-src="assets/showreel.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
         <div class="media-placeholder" aria-hidden="true"></div>
         <button class="play-control" data-video-toggle aria-label="Play showreel" aria-pressed="false">
@@ -45,32 +48,32 @@
         </button>
       </section>
 
-      <div class="services-strip" aria-label="Services">
+      <div class="services-strip" aria-label="Services" data-reveal>
         <span>FILMMAKING</span><i></i><span>DIRECTION</span><i></i><span>MARKETING</span><i></i><span>STORYTELLING</span>
       </div>
 
       <section class="work page-width" id="work" aria-label="Selected work">
         <div class="video-grid">
-          <button class="film-card film-one" data-video-toggle data-video="assets/project-01.mp4" aria-label="Play project video one" aria-pressed="false">
+          <button class="film-card film-one" data-reveal data-video-toggle data-video="assets/project-01.mp4" aria-label="Play project video one" aria-pressed="false">
             <video class="media-video" data-src="assets/project-01.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
             <span class="media-placeholder" aria-hidden="true"></span><span class="card-play" aria-hidden="true">▶</span>
           </button>
-          <button class="film-card film-two" data-video-toggle data-video="assets/project-02.mp4" aria-label="Play project video two" aria-pressed="false">
+          <button class="film-card film-two" data-reveal data-video-toggle data-video="assets/project-02.mp4" aria-label="Play project video two" aria-pressed="false">
             <video class="media-video" data-src="assets/project-02.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
             <span class="media-placeholder" aria-hidden="true"></span><span class="card-play" aria-hidden="true">▶</span>
           </button>
-          <button class="film-card film-three" data-video-toggle data-video="assets/project-03.mp4" aria-label="Play project video three" aria-pressed="false">
+          <button class="film-card film-three" data-reveal data-video-toggle data-video="assets/project-03.mp4" aria-label="Play project video three" aria-pressed="false">
             <video class="media-video" data-src="assets/project-03.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
             <span class="media-placeholder" aria-hidden="true"></span><span class="card-play" aria-hidden="true">▶</span>
           </button>
-          <button class="film-card film-four" data-video-toggle data-video="assets/project-04.mp4" aria-label="Play project video four" aria-pressed="false">
+          <button class="film-card film-four" data-reveal data-video-toggle data-video="assets/project-04.mp4" aria-label="Play project video four" aria-pressed="false">
             <video class="media-video" data-src="assets/project-04.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
             <span class="media-placeholder" aria-hidden="true"></span><span class="card-play" aria-hidden="true">▶</span>
           </button>
         </div>
       </section>
 
-      <section class="contact-panel page-width" id="contact">
+      <section class="contact-panel page-width" id="contact" data-reveal>
         <p class="eyebrow">DOHA, QATAR · AVAILABLE WORLDWIDE</p>
         <h2>Have a story?<br><em>Let’s make it move.</em></h2>
         <a class="contact-link" href="tel:+97451171114">+974 5117 1114 <span>↗</span></a>
