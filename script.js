@@ -28,6 +28,7 @@ function start(control) {
   video.play().then(() => {
     video.classList.add('is-playing');
     control.classList.add('is-playing');
+    control.setAttribute('aria-label', control.classList.contains('play-control') ? 'Pause showreel' : 'Pause portfolio video');
   }).catch(() => {});
 }
 
@@ -37,6 +38,7 @@ function pause(control) {
   video.pause();
   video.classList.remove('is-playing');
   control.classList.remove('is-playing');
+  control.setAttribute('aria-label', control.classList.contains('play-control') ? 'Play showreel' : 'Play portfolio video');
 }
 
 controls.forEach((control) => {
@@ -69,5 +71,6 @@ controls.forEach((control) => {
     control.classList.remove('is-playing');
     pinned = false;
     control.setAttribute('aria-pressed', 'false');
+    control.setAttribute('aria-label', control.classList.contains('play-control') ? 'Play showreel' : 'Play portfolio video');
   });
 });
