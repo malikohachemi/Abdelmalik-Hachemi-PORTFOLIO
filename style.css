@@ -57,7 +57,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
 .play-label { font-size: 9px; letter-spacing: 1.6px; }
 
 .partner-banner { width: min(1120px, calc(100% - 112px)); margin: 72px auto 96px; padding: 24px 0; border-block: 1px solid #ffffff12; }
-.partner-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px; }
+.partner-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px 44px; }
 .partner-logo-tile { display: flex; flex: 0 0 auto; align-items: center; justify-content: center; height: 92px; padding: 10px 16px; overflow: hidden; border-radius: 4px; background: #fff; }
 .partner-logo-tile img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .web-summit-tile { width: 174px; }
@@ -101,7 +101,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .contact-row { margin-top: 72px; font-size: 12px; }
   .showreel { margin-top: 72px; }
   .partner-banner { width: calc(100% - 40px); margin: 52px auto 72px; padding-block: 20px; }
-  .partner-logos { gap: 14px; }
+  .partner-logos { gap: 28px 30px; }
   .partner-logo-tile { height: 82px; padding: 9px 13px; }
   .web-summit-tile { width: 152px; }
   .fifa-tile { width: 82px; }
@@ -125,7 +125,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .play-symbol { font-size: 19px; }
   .play-label { font-size: 8px; }
   .partner-banner { width: calc(100% - 36px); margin: 38px auto 58px; padding-block: 16px; }
-  .partner-logos { gap: 10px; }
+  .partner-logos { gap: 20px 18px; }
   .partner-logo-tile { height: 72px; padding: 8px 12px; }
   .web-summit-tile { width: 128px; }
   .fifa-tile { width: 72px; }
