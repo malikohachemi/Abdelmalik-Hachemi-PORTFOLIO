@@ -2,17 +2,9 @@
 
 A lightweight, static HTML/CSS/JS portfolio. It has no build step and can be published from the repository root with GitHub Pages. GSAP, ScrollTrigger, and Lenis load from CDNs for the motion layer.
 
-## Add your videos
+## Project videos
 
-Add files to the existing `assets/` folder using these names, or update the matching `data-src` paths in `index.html`:
-
-- `showreel.mp4`
-- `project-01.mp4`
-- `project-02.mp4`
-- `project-03.mp4`
-- `project-04.mp4`
-
-The reel and project previews play on hover and pause when the pointer leaves or the video scrolls out of view. Click a video to keep it playing; click again to pause. On touchscreens, click controls playback. Videos start muted. Keep video files reasonably compressed for faster page loads.
+Web-ready videos live in `assets/videos/`; their titles, categories, dates, and file paths are listed in `index.html`. Replace each “Date to be confirmed” label when the project dates are known. The original camera files are kept in their category folders under `assets/` and should not be committed: they exceed GitHub's per-file upload limit. The smaller web copies play muted on hover, pause when the pointer leaves or the video scrolls out of view, and can be toggled by click.
 
 The supplied MH Studio Production logo is used for `favicon.png`. The four partner marks are separated from the supplied logo sheet, vectorized as SVGs, and shown in a static, responsive row.
 

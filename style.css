@@ -43,18 +43,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
 .contact-icon { color: var(--muted); font-size: 18px; line-height: 1; }
 .contact-divider { width: 1px; height: 24px; background: var(--line); }
 
-.showreel { position: relative; aspect-ratio: 16 / 9; margin-top: 116px; overflow: hidden; border-radius: 8px; isolation: isolate; background: #211116; }
 .media-video, .media-placeholder { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .media-video { z-index: 1; opacity: 0; transition: opacity .45s; }
 .media-video.is-playing { opacity: 1; }
 .media-placeholder { z-index: 0; background: radial-gradient(ellipse at 68% 48%, #561627 0, #28131b 42%, #101013 100%); }
-.showreel .media-placeholder::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #09090b45, transparent 35%, #09090b25); }
-.play-control { position: absolute; z-index: 2; left: 50%; top: 50%; width: 154px; height: 154px; transform: translate(-50%, -50%); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; border: 1px solid #ffffffa8; border-radius: 50%; background: #8f1734e8; cursor: pointer; transition: transform .25s, background .25s, opacity .25s; }
-.play-control:hover { transform: translate(-50%, -50%) scale(1.06); background: var(--burgundy); }
-.play-control.is-playing { opacity: .12; }
-.play-control.is-playing:hover { opacity: 1; }
-.play-symbol { font-size: 25px; line-height: 1.2; }
-.play-label { font-size: 9px; letter-spacing: 1.6px; }
 
 .partner-banner { width: min(1120px, calc(100% - 112px)); margin: 72px auto 96px; padding: 24px 0; border-block: 1px solid #ffffff12; }
 .partner-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px 44px; }
@@ -66,18 +58,17 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
 .qfa-tile { width: 178px; }
 .work { scroll-margin-top: 30px; }
 .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 40px; }
-.film-card { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; padding: 0; border: 0; border-radius: 6px; background: var(--surface); cursor: pointer; isolation: isolate; }
+.film-project { min-width: 0; }
+.film-card { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; padding: 0; border: 0; border-radius: 6px; background: var(--surface); cursor: pointer; isolation: isolate; }
 .film-card .media-placeholder { transition: transform .65s; }
 .film-card:hover .media-placeholder { transform: scale(1.035); }
-.film-one .media-placeholder { background: linear-gradient(130deg, #171519, #5a182a 50%, #941c39); }
-.film-two .media-placeholder { background: linear-gradient(130deg, #111216, #3e1420 50%, #74182f); }
-.film-three .media-placeholder { background: linear-gradient(130deg, #141317, #581727 50%, #a51f3d); }
-.film-four .media-placeholder { background: linear-gradient(130deg, #101013, #32131d 48%, #67172b); }
 .film-card::after { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(0deg, #09090b35, transparent 42%); pointer-events: none; }
 .card-play { position: absolute; z-index: 3; left: 50%; top: 50%; width: 54px; height: 54px; transform: translate(-50%, -50%); display: grid; place-items: center; padding-left: 2px; border: 1px solid #ffffffa8; border-radius: 50%; background: #8f1734e8; font-size: 12px; transition: opacity .2s, transform .2s; }
 .film-card.is-playing .card-play { opacity: 0; }
 .film-card:hover .card-play { transform: translate(-50%, -50%) scale(1.08); }
 .film-card.is-playing:hover .card-play { opacity: 1; }
+.film-title { margin: 12px 0 0; padding: 0 0 8px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 700; line-height: 1.3; }
+.film-meta { margin: 0; padding: 7px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.2; }
 
 .contact-panel { margin-top: 132px; margin-bottom: 100px; padding: 70px clamp(28px, 8vw, 100px); border-radius: 6px; background: radial-gradient(ellipse at 78% 18%, #4c1323 0, #201117 37%, #121215 76%); }
 .eyebrow { margin: 0 0 18px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 1.6px; }
@@ -99,7 +90,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .intro { padding-top: 68px; }
   .intro h1 { font-size: clamp(28px, 4.7vw, 36px); line-height: 1.28; }
   .contact-row { margin-top: 72px; font-size: 12px; }
-  .showreel { margin-top: 72px; }
   .partner-banner { width: calc(100% - 40px); margin: 52px auto 72px; padding-block: 20px; }
   .partner-logos { gap: 28px 30px; }
   .partner-logo-tile { height: 82px; }
@@ -120,10 +110,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .intro h1 { font-size: clamp(25px, 7.1vw, 31px); line-height: 1.32; letter-spacing: -.015em; }
   .contact-row { align-items: flex-start; flex-wrap: wrap; gap: 10px 14px; margin-top: 56px; font-size: 11px; }
   .contact-divider { height: 19px; }
-  .showreel { aspect-ratio: 4 / 3; margin-top: 50px; border-radius: 6px; }
-  .play-control { width: 92px; height: 92px; }
-  .play-symbol { font-size: 19px; }
-  .play-label { font-size: 8px; }
   .partner-banner { width: calc(100% - 36px); margin: 38px auto 58px; padding-block: 16px; }
   .partner-logos { gap: 20px 18px; }
   .partner-logo-tile { height: 72px; }
@@ -132,7 +118,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .elite-tile { width: 124px; }
   .qfa-tile { width: 138px; }
   .video-grid { grid-template-columns: 1fr; gap: 20px; }
-  .film-card { aspect-ratio: 4 / 3; }
+  .film-card { aspect-ratio: 4 / 5; }
   .contact-panel { width: calc(100% - 36px); margin-top: 66px; margin-bottom: 36px; padding: 42px 24px; }
   .contact-panel h2 { font-size: clamp(45px, 13vw, 62px); }
   .contact-link { margin-top: 25px; font-size: 16px; }
