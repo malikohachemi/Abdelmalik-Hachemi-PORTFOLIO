@@ -43,10 +43,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
 .contact-icon { color: var(--muted); font-size: 18px; line-height: 1; }
 .contact-divider { width: 1px; height: 24px; background: var(--line); }
 
-.media-video, .media-placeholder { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.media-video { z-index: 1; opacity: 0; transition: opacity .45s; }
-.media-video.is-playing { opacity: 1; }
-.media-placeholder { z-index: 0; background: radial-gradient(ellipse at 68% 48%, #561627 0, #28131b 42%, #101013 100%); }
 
 .partner-banner { width: min(1120px, calc(100% - 112px)); margin: 72px auto 96px; padding: 24px 0; border-block: 1px solid #ffffff12; }
 .partner-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px 44px; }
@@ -57,16 +53,41 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
 .elite-tile { width: 168px; }
 .qfa-tile { width: 220px; }
 .work { scroll-margin-top: 30px; }
-.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 40px; }
+.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 40px; }
 .film-project { min-width: 0; }
-.film-card { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; padding: 0; border: 0; border-radius: 6px; background: var(--surface); cursor: pointer; isolation: isolate; }
-.film-card .media-placeholder { transition: transform .65s; }
-.film-card:hover .media-placeholder { transform: scale(1.035); }
-.film-card::after { content: ''; position: absolute; z-index: 2; inset: 0; background: linear-gradient(0deg, #09090b35, transparent 42%); pointer-events: none; }
-.card-play { position: absolute; z-index: 3; left: 50%; top: 50%; width: 54px; height: 54px; transform: translate(-50%, -50%); display: grid; place-items: center; padding-left: 2px; border: 1px solid #ffffffa8; border-radius: 50%; background: #8f1734e8; font-size: 12px; transition: opacity .2s, transform .2s; }
-.film-card.is-playing .card-play { opacity: 0; }
-.film-card:hover .card-play { transform: translate(-50%, -50%) scale(1.08); }
-.film-card.is-playing:hover .card-play { opacity: 1; }
+.film-card { --art-glow: #a51f3d; position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid #ffffff12; border-radius: 6px; background: #100d10; isolation: isolate; perspective: 1000px; outline: none; }
+.film-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 46%, color-mix(in srgb, var(--art-glow), transparent 67%), transparent 54%), linear-gradient(145deg, #191619, #09090b 70%); }
+.film-card::after { content: ''; position: absolute; inset: 0; z-index: 3; opacity: 0; background: #09090bd9; backdrop-filter: blur(7px); transition: opacity .45s; }
+.film-card:focus-visible { outline: 2px solid #d05a75; outline-offset: 5px; }
+.film-card:hover::after, .film-card:focus-visible::after { opacity: 1; }
+.scene-orbit { position: absolute; z-index: 1; left: 50%; top: 50%; width: 70%; aspect-ratio: 1.5; border: 1px solid color-mix(in srgb, var(--art-glow), white 35%); border-radius: 50%; transform: translate(-50%, -50%) rotateX(68deg) rotateZ(-28deg); box-shadow: 0 0 28px color-mix(in srgb, var(--art-glow), transparent 76%), inset 0 0 20px color-mix(in srgb, var(--art-glow), transparent 86%); animation: orbit-turn 16s linear infinite; }
+.scene-orbit-inner { width: 52%; aspect-ratio: 1.5; border-color: #ffffff66; transform: translate(-50%, -50%) rotateX(68deg) rotateZ(48deg); animation-duration: 22s; animation-direction: reverse; }
+.scene-object { position: absolute; z-index: 2; left: 50%; top: 50%; width: 38%; aspect-ratio: 1; border: 1px solid #ffffff8c; border-radius: 28%; background: linear-gradient(135deg, #f0bdc8, var(--art-glow) 37%, #310c19 78%); box-shadow: 18px 26px 45px #0009, inset -12px -16px 25px #09090b8c, inset 8px 8px 20px #ffffff30; transform-style: preserve-3d; transform: translate(-50%, -50%) rotateX(56deg) rotateZ(-34deg); animation: object-float 5s ease-in-out infinite; transition: transform .7s cubic-bezier(.2,.8,.2,1), filter .7s; }
+.scene-object::before, .scene-object::after { content: ''; position: absolute; inset: 12%; border: 1px solid #ffffff70; border-radius: inherit; transform: translateZ(22px) scale(.78); }
+.scene-object::after { inset: 27%; background: radial-gradient(circle at 35% 30%, #ffffffc9, #ffffff10 24%, transparent 50%); transform: translateZ(34px); }
+.scene-object-detail { position: absolute; inset: 45% 10%; border-top: 1px solid #ffffff7a; transform: translateZ(28px) rotate(-20deg); }
+.film-card:hover .scene-object, .film-card:focus-visible .scene-object { transform: translate(-50%, -50%) rotateX(28deg) rotateY(-20deg) rotateZ(-22deg) scale(1.16); filter: brightness(1.18); }
+.film-card:hover .scene-orbit, .film-card:focus-visible .scene-orbit { animation-duration: 5s; }
+.film-card[data-scene="day-one"] { --art-glow: #7a263a; }
+.film-card[data-scene="day-one"] .scene-object { border-radius: 4px; clip-path: polygon(50% 0, 100% 26%, 86% 84%, 50% 100%, 14% 84%, 0 26%); }
+.film-card[data-scene="handball"] { --art-glow: #bb5367; }
+.film-card[data-scene="handball"] .scene-object, .film-card[data-scene="volleyball"] .scene-object { border-radius: 50%; background: radial-gradient(circle at 32% 28%, #ffffff, #e8b8c2 14%, var(--art-glow) 42%, #350e1b 78%); }
+.film-card[data-scene="handball"] .scene-object::before, .film-card[data-scene="volleyball"] .scene-object::before { inset: 0; border-radius: 50%; transform: translateZ(8px) rotate(28deg) scaleX(.45); }
+.film-card[data-scene="jazzline"] { --art-glow: #d0526f; }
+.film-card[data-scene="jazzline"] .scene-object { width: 32%; border-radius: 50%; background: radial-gradient(circle at 30% 26%, #fff, #e89aab 8%, #a51f3d 34%, #250b13 78%); }
+.film-card[data-scene="athmane"] { --art-glow: #8e3449; }
+.film-card[data-scene="athmane"] .scene-object { width: 54%; height: 34%; aspect-ratio: auto; border-radius: 8px; transform: translate(-50%, -50%) rotateX(58deg) rotateZ(-25deg); }
+.film-card[data-scene="volleyball"] { --art-glow: #a72a47; }
+.coming-soon { position: absolute; z-index: 4; inset: 0; display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--white); opacity: 0; pointer-events: none; transition: opacity .35s; }
+.film-card:hover .coming-soon, .film-card:focus-visible .coming-soon { opacity: 1; }
+.coming-label { position: relative; overflow: hidden; padding: 0 0 8px; font-size: clamp(12px, 1.2vw, 16px); font-weight: 700; letter-spacing: .2em; transform: translateY(14px); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.coming-label::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 0; height: 2px; background: var(--burgundy); transition: right .6s .08s; }
+.film-card:hover .coming-label, .film-card:focus-visible .coming-label { transform: translateY(0); }
+.film-card:hover .coming-label::after, .film-card:focus-visible .coming-label::after { right: 0; }
+.coming-arrow { color: #e7a9b7; font-size: 20px; opacity: 0; transform: translate(-6px, 6px); transition: opacity .35s .16s, transform .35s .16s; }
+.film-card:hover .coming-arrow, .film-card:focus-visible .coming-arrow { opacity: 1; transform: translate(0, 0); }
+@keyframes object-float { 0%, 100% { margin-top: -1.5%; } 50% { margin-top: 1.5%; } }
+@keyframes orbit-turn { to { transform: translate(-50%, -50%) rotateX(68deg) rotateZ(332deg); } }
 .film-title { margin: 12px 0 0; padding: 0 0 8px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 700; line-height: 1.3; }
 .film-meta { margin: 0; padding: 7px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.2; }
 
@@ -97,7 +118,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .fifa-tile { width: 82px; }
   .elite-tile { width: 148px; }
   .qfa-tile { width: 204px; }
-  .video-grid { gap: 24px 18px; }
+  .project-grid { gap: 24px 18px; }
   .contact-panel { margin-top: 90px; margin-bottom: 60px; }
 }
 
@@ -117,7 +138,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .fifa-tile { width: 72px; }
   .elite-tile { width: 124px; }
   .qfa-tile { width: 178px; }
-  .video-grid { grid-template-columns: 1fr; gap: 20px; }
+  .project-grid { grid-template-columns: 1fr; gap: 20px; }
   .film-card { aspect-ratio: 4 / 5; }
   .contact-panel { width: calc(100% - 36px); margin-top: 66px; margin-bottom: 36px; padding: 42px 24px; }
   .contact-panel h2 { font-size: clamp(45px, 13vw, 62px); }

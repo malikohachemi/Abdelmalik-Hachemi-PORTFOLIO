@@ -2,11 +2,11 @@
 
 A lightweight, static HTML/CSS/JS portfolio. It has no build step and can be published from the repository root with GitHub Pages. GSAP, ScrollTrigger, and Lenis load from CDNs for the motion layer.
 
-## Project videos
+## Project cards
 
-Web-ready videos live in `assets/videos/`; their titles, categories, dates, and file paths are listed in `index.html`. Replace each “Date to be confirmed” label when the project dates are known. The original camera files are kept in their category folders under `assets/` and should not be committed: they exceed GitHub's per-file upload limit. The smaller web copies play muted on hover, pause when the pointer leaves or the video scrolls out of view, and can be toggled by click.
+The project cards currently use lightweight CSS 3D artwork with a “Coming soon” hover animation. Titles, categories, and date placeholders are listed in `index.html`. Original clips are not loaded by the page; add web-sized copies and replace the placeholder scenes when the films are ready.
 
-The supplied MH Studio Production logo is used for `favicon.png`. The four partner marks are separated from the supplied logo sheet, vectorized as SVGs, and shown in a static, responsive row.
+The supplied MH Studio Production logo is used for `favicon.png`. The four partner marks are stored in `assets/partners/` and shown in a static, responsive row.
 
 ## Publish with GitHub Pages and a custom domain
 
