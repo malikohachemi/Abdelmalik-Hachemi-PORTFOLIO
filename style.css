@@ -138,8 +138,13 @@ button:focus-visible, a:focus-visible { outline: 2px solid #d05a75; outline-offs
   .fifa-tile { width: 72px; }
   .elite-tile { width: 124px; }
   .qfa-tile { width: 178px; }
-  .project-grid { grid-template-columns: 1fr; gap: 20px; }
-  .film-card { aspect-ratio: 4 / 5; }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
+  .film-card { aspect-ratio: 9 / 16; }
+  .film-title { font-size: 14px; }
+  .film-meta { font-size: 10px; }
+  .coming-soon { gap: 6px; }
+  .coming-label { font-size: 10px; letter-spacing: .13em; }
+  .coming-arrow { font-size: 18px; }
   .contact-panel { width: calc(100% - 36px); margin-top: 66px; margin-bottom: 36px; padding: 42px 24px; }
   .contact-panel h2 { font-size: clamp(45px, 13vw, 62px); }
   .contact-link { margin-top: 25px; font-size: 16px; }
